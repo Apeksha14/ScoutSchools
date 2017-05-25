@@ -1,0 +1,102 @@
+	
+	<div id="loginnav" ng-controller="PageCtrl">
+	
+    <a id="namenav"><h4 id="nameh4"style="color:white">Welcome, <span id="nameh3" style="color:white" ng-bind='session.data'></span></h4></a>
+	<div id="loginmenu">
+		<a href="#/signup" ng-if="!session.data"><span data-hover="SignUp">SignUp</span></a>
+		<a href="#/login" ng-if="!session.data"><span data-hover="SignIn">Login</span></a>
+		<a href="#/logout" ng-if="session.data" ng-click="logout()"><span data-hover="Logout">Logout</span></a>
+	</div>
+	
+</div>
+	<div class="banner1" ng-controller="myCtrl">
+		<nav class="navbar navbar-default">
+			<div class="navbar-header navbar-left">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<h1><a class="navbar-brand" href="index.html"><span>Scout</span>Schools</a></h1>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+				<nav class="link-effect-2" id="link-effect-2">
+					<ul class="nav navbar-nav">
+							<li class="active"><a href="index.html"><span data-hover="Home">Home</span></a></li>
+						<li ><a href="#/about"><span data-hover="About Us">About Us</span></a></li>
+						<li><a href="#/team"><span data-hover="Our Team">Our Team</span></a></li>
+						<!-- Dropdown Trigger -->
+            <li class="dropdown">
+                      
+					<a class="dropdown-content" ng-model="value" ng-change="change()" id="menu1" data-toggle="dropdown"><span data-hover="Search Schools">Search Schools</span>
+					<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li><a href="#/school" value="nearby">Browse Schools</a></li>
+										<li><a href="#/schoolsearch" value="school">School Search</a></li>
+										<li><a href="#/city" value="city">City Overview</a></li>
+										<li><a href="#/cities" value="nearbycities">Nearby Cities</a></li>
+										<li><a href="#/districts" value="nearbycities">Browse Districts</a></li>
+            </ul>
+          
+            </li>
+
+             <li><a href="#/daycares"><span data-hover="Daycares">DayCares</span></a></li>
+			  <li><a ng-click="savedsearch()" ng-if="session.data" value="savedsearch" ><span data-hover="Saved Schools">Saved Schools</span></a></li>
+			<li><a ng-click="saveddaycares()" ng-if="session.data" value="saveddaycares" ><span data-hover="Saved Daycares">Saved Daycares</span></a></li>
+                <li><a href="#/contact"><span data-hover="Contact Us">Contact Us</span></a></li>
+
+					</ul>
+				</nav>
+			</div>
+			
+		</nav>
+		<div class="wthree_banner1_info">
+			<div class="container">
+				<h3><span>Nearby</span> Cities </h3>
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="register" ng-controller="myCtrl" id="schoolsearch" >
+				<form ng-submit="saveSearch()">
+					
+				<table id="tablediv"  class="table table-striped">
+					<thead>
+						<tr>
+							<th>Save</th>
+							<th>City Name</th>
+							<th>Charter Schools</th>
+							<th>Elementary Schools</th>
+							<th>High Schools</th>
+							<th>Middle Schools</th>
+							<th>Private Schools</th>
+							<th>Public Schools</th>
+							<th>Rating</th>
+							<th>Total Schools</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in items">
+                            
+      						<td ><input type="checkbox" ng-model="item.value" ng-click="setSelected(item)"></td> 
+							<td>{{item.name}}</td>
+							<td>{{item.charter}}</td>
+							<td>{{item.elementary}}</td>
+							<td>{{item.high}}</td>
+							<td>{{item.middle}}</td>
+							<td>{{item.private}}</td>
+							<td>{{item.public}}</td>
+							<td>{{item.rating[0]}}</td>
+							<td>{{item.total}} </td>
+						</tr>
+                          
+						
+					</tbody>
+					
+
+				</table></form></div>
+				
+			

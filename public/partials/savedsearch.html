@@ -1,0 +1,48 @@
+<div id="loginnav" ng-controller="PageCtrl">
+	
+    <a id="namenav"><h4 id="nameh4"style="color:white">Welcome, <span id="nameh3" style="color:white" ng-bind='session.data'></span></h4></a>
+	<div id="loginmenu">
+		<a href="#/signup" ng-if="!session.data"><span data-hover="SignUp">SignUp</span></a>
+		<a href="#/login" ng-if="!session.data"><span data-hover="SignIn">Login</span></a>
+		<a href="#/logout" ng-if="session.data" ng-click="logout()"><span data-hover="Logout">Logout</span></a>
+	</div>
+	
+</div>
+
+		<div class="component" ng-controller="myCtrl1" >
+				<form ng-submit="saveSearch()">
+				<table id="tablediv">
+					<thead>
+						<tr>
+							<th>Save</th>
+							<th>School Id</th>
+							<th>School Name</th>
+							<th>Type</th>
+							<th>Address</th>
+							
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in items">
+                            
+      						<td><input type="checkbox" ng-model="item.value" ng-click="setSelected(item)"></td> 
+							<td ng-model="name">{{item.id}}</td> 
+                            <td ng-model="name">{{item.name}}</td>
+                            <td ng-modal="type">{{item.type}}</td>
+                            <!--<td><a ng-href="{{item.url}}">{{item.url}}</a></td>-->
+							<td ng-model="address">{{item.address}}</td>
+
+          
+                        </tr>
+					</tbody>
+				</table>
+				<button type="submit">Save Search</button>
+				</form>
+				
+			</div>
+
+            <div id="mapprop"></div>
+            
+
+			
