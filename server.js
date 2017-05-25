@@ -373,7 +373,7 @@ app.post('/search', function(req, res) {
 
    //var uristring = process.env.MONGOLAB_URI ||  process.env.MONGODB_URI || process.env.MONGOHQ_URL || 'mongodb://heroku_z49hw4k5:jg8j247rul3ho8c8gb5qndited@ds111791.mlab.com:11791/heroku_z49hw4k5';
 
-    var uristring = 'mongodb://heroku_8l5pxnlr:roq3e873hjpqc0gbgmcm1vt4g9@ds149431.mlab.com:49431/heroku_8l5pxnlr';
+    var uristring = 'mongodb://heroku_k8133jd9:dd5ej3mhsog3pvcbm1010i47ra@ds151951.mlab.com:51951/heroku_k8133jd9';
    // var uristring = 'mongodb://localhost/angulardb';
     var PORT = process.env.PORT || 3000;
     mongoose.connect(uristring, function (err, res) {
