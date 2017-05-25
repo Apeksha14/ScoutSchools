@@ -497,155 +497,7 @@ $scope.schoolreview= function(){
 });
 }
 
-$scope.test= function(item){
 
-     
-     console.log($scope.state);
-     console.log($scope.gsid)
-      var state = $scope.state;
-      var id = $scope.gsid;
-    var input = {};
-
-      if(item)
-      {
-        input = {
-           state: item.state,
-        gsID:item.id
-        }
-
-      }
-      else
-      {
-           input = {
-
-        state: state,
-        gsID:id
-        
-      }
-      }
-     
-
-
-     $http({
-       method: 'post',
-       url: '/tests',
-       data: input
- }).success(function(response){
-  
-   $scope.items = [];
-  
-   console.log(response);
-   console.log(response.testResults.rank[0].name);
-   console.log(response.testResults.rank[0].score);
-   console.log(response.testResults.rank[0].scale);
-   console.log(response.testResults.rank[0].year);
-
-  
-  for(var i=0;i<1;i++)
-    {
-
-     $scope.items[i] = {
-        
-        "rank":response.testResults.rank[0].name,
-        "score": response.testResults.rank[0].score,
-        "scale":response.testResults.rank[0].scale,
-        "year":response.testResults.rank[0].year,
-        "name":response.testResults.schoolName,
-        "tests":response.testResults.test
-
-      }
-
-    }
-  
-    console.log($scope.items);
-    searchResult = $scope.items;
-    //console.log(searchResult);
-          
-                      
-                $location.path('/testscores/');
- 
-
-
-  
-});
-}
-
-
-$scope.schoolcensus= function(item){
-
-     console.log($scope.state);
-     console.log($scope.gsid)
-     console.log(item);
-      var state = $scope.state;
-      var id = $scope.gsid;
-
-      var input = {};
-
-      if(item)
-      {
-        input = {
-           state: item.state,
-        gsID:item.id
-        }
-
-      }
-      else
-      {
-           input = {
-
-        state: state,
-        gsID:id
-        
-      }
-      }
-     
-
-      
-
-
-     $http({
-       method: 'post',
-       url: '/census',
-       data: input
- }).success(function(response){
-   console.log(response['census-data']);
-  
-   $scope.items = [];
-  
-    for(var i=0;i<1;i++)
-    {
-      $scope.items[i] =
-
-      {  
-        "address":response['census-data'].address,
-        "district":response['census-data'].district,
-        "enrollment":response['census-data'].enrollment,
-        "ethnicities" :response['census-data'].enthnicities,
-        "percent":response['census-data'].percentTeachersInFirstSecondYear,
-        "email":response['census-data'].headOfficialEmail,
-        "name":response['census-data'].headOfficialName,
-        "phone":response['census-data'].phone,
-        "schoolName": response['census-data'].schoolName,
-        "type": response['census-data'].type,
-
-      }
-
-      
-    }
-    searchResult = $scope.items;
-  console.log(searchResult);
-          
-                      
-                $location.path('/censusdata/');
- 
-
- 
-  
-});
-      
-      
-     
-}
 $scope.overview= function(){
 
      console.log($scope.city);
@@ -1354,7 +1206,155 @@ $scope.schooldetails = function(id)
 }
 
 
+$scope.test= function(item){
 
+     
+     console.log($scope.state);
+     console.log($scope.gsid)
+      var state = $scope.state;
+      var id = $scope.gsid;
+    var input = {};
+
+      if(item)
+      {
+        input = {
+           state: item.state,
+        gsID:item.id
+        }
+
+      }
+      else
+      {
+           input = {
+
+        state: state,
+        gsID:id
+        
+      }
+      }
+     
+
+
+     $http({
+       method: 'post',
+       url: '/tests',
+       data: input
+ }).success(function(response){
+  
+   $scope.items = [];
+  
+   console.log(response);
+   console.log(response.testResults.rank[0].name);
+   console.log(response.testResults.rank[0].score);
+   console.log(response.testResults.rank[0].scale);
+   console.log(response.testResults.rank[0].year);
+
+  
+  for(var i=0;i<1;i++)
+    {
+
+     $scope.items[i] = {
+        
+        "rank":response.testResults.rank[0].name,
+        "score": response.testResults.rank[0].score,
+        "scale":response.testResults.rank[0].scale,
+        "year":response.testResults.rank[0].year,
+        "name":response.testResults.schoolName,
+        "tests":response.testResults.test
+
+      }
+
+    }
+  
+    console.log($scope.items);
+    searchResult = $scope.items;
+    //console.log(searchResult);
+          
+                      
+                $location.path('/testscores/');
+ 
+
+
+  
+});
+}
+
+
+$scope.schoolcensus= function(item){
+
+     console.log($scope.state);
+     console.log($scope.gsid)
+     console.log(item);
+      var state = $scope.state;
+      var id = $scope.gsid;
+
+      var input = {};
+
+      if(item)
+      {
+        input = {
+           state: item.state,
+        gsID:item.id
+        }
+
+      }
+      else
+      {
+           input = {
+
+        state: state,
+        gsID:id
+        
+      }
+      }
+     
+
+      
+
+
+     $http({
+       method: 'post',
+       url: '/census',
+       data: input
+ }).success(function(response){
+   console.log(response['census-data']);
+  
+   $scope.items = [];
+  
+    for(var i=0;i<1;i++)
+    {
+      $scope.items[i] =
+
+      {  
+        "address":response['census-data'].address,
+        "district":response['census-data'].district,
+        "enrollment":response['census-data'].enrollment,
+        "ethnicities" :response['census-data'].enthnicities,
+        "percent":response['census-data'].percentTeachersInFirstSecondYear,
+        "email":response['census-data'].headOfficialEmail,
+        "name":response['census-data'].headOfficialName,
+        "phone":response['census-data'].phone,
+        "schoolName": response['census-data'].schoolName,
+        "type": response['census-data'].type,
+
+      }
+
+      
+    }
+    searchResult = $scope.items;
+  console.log(searchResult);
+          
+                      
+                $location.path('/censusdata/');
+ 
+
+ 
+  
+});
+      
+      
+     
+}
 
 
 });
