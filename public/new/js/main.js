@@ -267,83 +267,7 @@ $scope.nearby= function(){
 });
 }
 
-$scope.profile= function(item){
 
-    
-    var input = {};
-
-      
-      var state = $scope.state;
-      var id = $scope.gsid;
-      
-       console.log($scope.state);
-     console.log($scope.gsid);
- 
- if(item)
-      {
-        input = {
-           state: item.state,
-        gsID:item.id
-        }
-
-      }
-      else
-      {
-           input = {
-
-        state: state,
-        gsID:id
-        
-      }
-      }
-
-      console.log(input);
-
-     $http({
-       method: 'post',
-       url: '/profile',
-       data: input
- }).success(function(response){
-   console.log(response);
-   console.log(response.school.gsId[0]);
-    
-      $scope.items=[];
-
-       for(var i=0;i<1;i++)
-    {
-
-      $scope.items[i] =
-
-      { 
-        
-        "id":response.school.gsId,
-        "name":response.school.name,
-        "type":response.school.type,
-        "address" :response.school.address,
-        "range":response.school.gradeRange,
-        "enroll":response.school.enrollment,
-        "rating":response.school.parentRating,
-        "gsrating":response.school.gsRating,
-        "district":response.school.district,
-        "nces":response.school.ncesId,
-        "parentreviews":response.school.parentReviews,
-        "phone":response.school.phone,
-        "fax":response.school.fax,
-        "website":response.school.website
-        
-      }
-    }
-
-    searchResult = $scope.items;
-          
-                      
-    $location.path('/profilesearch');
- 
-
-
-  
-});
-}
 
 
 $scope.schoolsearch= function(){
@@ -1354,6 +1278,84 @@ $scope.schoolcensus= function(item){
       
       
      
+}
+
+$scope.profile= function(item){
+
+    
+    var input = {};
+
+      
+      var state = $scope.state;
+      var id = $scope.gsid;
+      
+       console.log($scope.state);
+     console.log($scope.gsid);
+ 
+ if(item)
+      {
+        input = {
+           state: item.state,
+        gsID:item.id
+        }
+
+      }
+      else
+      {
+           input = {
+
+        state: state,
+        gsID:id
+        
+      }
+      }
+
+      console.log(input);
+
+     $http({
+       method: 'post',
+       url: '/profile',
+       data: input
+ }).success(function(response){
+   console.log(response);
+   console.log(response.school.gsId[0]);
+    
+      $scope.items=[];
+
+       for(var i=0;i<1;i++)
+    {
+
+      $scope.items[i] =
+
+      { 
+        
+        "id":response.school.gsId,
+        "name":response.school.name,
+        "type":response.school.type,
+        "address" :response.school.address,
+        "range":response.school.gradeRange,
+        "enroll":response.school.enrollment,
+        "rating":response.school.parentRating,
+        "gsrating":response.school.gsRating,
+        "district":response.school.district,
+        "nces":response.school.ncesId,
+        "parentreviews":response.school.parentReviews,
+        "phone":response.school.phone,
+        "fax":response.school.fax,
+        "website":response.school.website
+        
+      }
+    }
+
+    searchResult = $scope.items;
+          
+                      
+    $location.path('/profilesearch');
+ 
+
+
+  
+});
 }
 
 
