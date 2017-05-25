@@ -64,7 +64,6 @@
 	
 					<thead>
 						<tr>
-							<th>Save</th>
 							<th>School Name</th>
 							<th> Rank</th>
 							<th> Score</th>
@@ -77,7 +76,6 @@
 					<tbody>
 						<tr ng-repeat-start="item in items" ng-click="schooldetails(item.schooldetails)">
                             
-      						<td><input type="checkbox" ng-model="item.value" ng-click="setSelected(items)"></td> 
 							<td ng-model="rank" >{{item.name[0]}}</td> 
 							<td ng-model="rank" >{{item.rank[0]}}</td> 
                             <td ng-model="score">{{item.score[0]}}</td>
@@ -110,7 +108,6 @@
           				</tr>
 					</tbody>
 				</table>
-				<button type="submit" ng-click="savesearch()">Save Search</button>
 				</form>
 				
 			</div>

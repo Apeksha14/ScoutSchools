@@ -65,7 +65,6 @@
 				<table id="tabledivcity"  class="table table-striped">
 					<thead>
 						<tr>
-							<th>Save</th>
 							<th>City Name</th>
 							<th>Charter Schools</th>
 							<th>Elementary Schools</th>
@@ -80,7 +79,6 @@
 					<tbody>
 						<tr ng-repeat="item in items">
                             
-      						<td ><input type="checkbox" ng-model="item.value" ng-click="setSelected(item)"></td> 
 							<td>{{item.name[0]}}</td>
 							<td>{{item.charter[0]}}</td>
 							<td>{{item.elementary[0]}}</td>
