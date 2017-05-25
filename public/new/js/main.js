@@ -43,7 +43,6 @@ app.config(['$routeProvider', function ($routeProvider) {
     .when("/about", {templateUrl: "partials/about.html", controller: "PageCtrl"}) //aboutus
     .when("/team", {templateUrl: "partials/team.html", controller: "PageCtrl"}) //ourteam
     .when("/login", {templateUrl: "partials/login.html", controller: "PageCtrl"}) //login
-    .when("/signup", {templateUrl: "partials/login1.html", controller: "PageCtrl"}) //signup
     .when("/contact", {templateUrl: "partials/contact.html", controller: "PageCtrl"}) //contactus
 
     //daycare search
@@ -86,6 +85,12 @@ app.config(['$routeProvider', function ($routeProvider) {
     .when("/successpage", {templateUrl: "partials/successpage.html", controller: "PageCtrl"})
 
     .when("/profilesearch", {templateUrl: "partials/search2.html", controller: "PageCtrl"})
+
+    .when("/signup", {templateUrl: "partials/signup.html", controller: "PageCtrl"})
+
+    .when("/errorpage", {templateUrl: "partials/errorpage.html", controller: "PageCtrl"})
+    .when("/successsignup", {templateUrl: "partials/successsignup.html", controller: "PageCtrl"})
+
 
     /*
     
@@ -1141,6 +1146,10 @@ $scope.back = function()
         {
           document.getElementById('daycarediv').style.display = "block";
         }
+         if(document.getElementById('signup'))
+        {
+          document.getElementById('signup').style.display = "block";
+        }
        document.getElementById('errordiv').style.display = "none";
 }
 
@@ -1422,7 +1431,8 @@ app.controller('loginCtrl',function ($rootScope,$scope, $location, $http,Session
     console.log($scope.items);
           
                       
-    $location.path('/usersaved/');
+  //  $location.path('/usersaved/');
+   $location.path('/');
 
 }
 else
@@ -1475,7 +1485,22 @@ else
    
    console.log("response");
    console.log(response);
-   if(response.length > 0)
+
+   if(response === "userexists")
+   {
+    for(var i=0;i<1;i++)
+     {
+       $rootScope.errors1[i] = 
+       {
+         msg: "User already Exists.Please choose a different email id"
+        
+       }
+       
+     }
+
+   }
+
+  else if(response.length > 0)
    {
       
      for(var i=0;i<response.length;i++)
@@ -1487,14 +1512,17 @@ else
        }
        
      }
-      
-     $location.path("/errorpage");
-   }
+        $scope.error = "Invalid search parameters!!";
+        document.getElementById('errordiv').style.display = "block";
+        document.getElementById('signup').style.display = "none";
+        document.getElementById("error").innerHTML = $scope.error;
+   
+     }
    else
    {
      console.log(response);
      $scope.name = response.username;
-     $location.path("/");
+     $location.path("/successsignup");
    }
    
 

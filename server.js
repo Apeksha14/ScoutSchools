@@ -485,6 +485,7 @@ function ensureAuthenticated(req, res, next){
 }
 
 app.post('/register', function(req, res){
+  console.log("register");
   console.log(req.body);
 	var name = req.body.username;
 	var password = req.body.password;
@@ -523,6 +524,7 @@ app.post('/register', function(req, res){
         throw err;
 
       }
+      console.log(newUser);
 			
 		});
 

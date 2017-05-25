@@ -53,17 +53,15 @@
 		</nav>
 		<div class="wthree_banner1_info">
 			<div class="container">
-				<h3><span>Login</span> </h3>
+				<h3><span>SignUp</span> </h3>
 			</div>
 		</div>
 	</div>
 
-   <div class="register" ng-controller="loginCtrl" id="login">
+   <div class="register" ng-controller="loginCtrl" id="signup">
 		<div class="container">
 			<div class="col-md-offset-4 col-md-6 w3layouts_register_right">
-				<form id="login" action="" method="post" ng-submit="login()">
-
-            
+			<form id="login" action="" method="post" ng-submit="signup()">
    
     <fieldset>
       <label><p>Username:</p></label>
@@ -73,11 +71,22 @@
         <label><p>Password:</p></label><br>
       <input style="height:40px;width:100%;" placeholder="Password" ng-model="password" type="password" tabindex="2" required>
     </fieldset>
+    <fieldset>
+        <label><p>Confirm Password:</p></label><br>
+            <input style="height:40px;width:100%;" placeholder="Confirm Password" ng-model="confirmpwd" type="password" tabindex="2" required>
 
-     <fieldset>
-					<input type="submit" value="Login">
     </fieldset>
-				</form>
+   <fieldset>
+        <label><p>Email :</p></label>
+        <input placeholder="Email" ng-model="email" type="text" tabindex="2" required>
+
+    </fieldset>
+    <fieldset>
+<input type="submit" value="SignUp">
+
+    </fieldset>
+   
+  </form>
 			</div>
 			
 			<div class="clearfix"> </div>
@@ -86,7 +95,16 @@
 
   <div id="errordiv" ng-controller="myCtrl">
         <div class="alert alert-danger" role="alert">
-					<p><span id="error"></span><br><br>
-                    <button type="button" value="Search Again" id="backbtn"  ng-click="back()">Search Again </button></p>
+            <div class="row">
+				<div class="col-md-offset-4 col-md-6">	
+             <div ng-repeat="error in errors"> 
+                <p >{{error.msg}}</p>
+            </div> 
+            <div ng-repeat="error in errors1"> 
+                <p>{{error.msg}}</p>
+            </div> 
+            <button type="button" value="Search Again" id="backbtn"  ng-click="back()">Try Again </button></p>
+				</div>
+				</div>
 		</div>
      </div>

@@ -1,4 +1,4 @@
-<div id="loginnav" ng-controller="PageCtrl">
+	<div id="loginnav" ng-controller="PageCtrl">
 	
     <a id="namenav"><h4 id="nameh4"style="color:white">Welcome, <span id="nameh3" style="color:white" ng-bind='session.data'></span></h4></a>
 	<div id="loginmenu">
@@ -8,7 +8,8 @@
 	</div>
 	
 </div>
-     <div class="banner1" ng-controller="myCtrl">
+	
+	<div class="banner1" ng-controller="myCtrl">
 		<nav class="navbar navbar-default">
 			<div class="navbar-header navbar-left">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -32,17 +33,17 @@
 					<a class="dropdown-content" ng-model="value" ng-change="change()" id="menu1" data-toggle="dropdown"><span data-hover="Search Schools">Search Schools</span>
 					<span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                   <li><a href="#/school" value="nearby">Browse Schools</a></li>
+                    <li><a href="#/school" value="nearby">Browse Schools</a></li>
 										<li><a href="#/schoolsearch" value="school">School Search</a></li>
 										<li><a href="#/city" value="city">City Overview</a></li>
 										<li><a href="#/cities" value="nearbycities">Nearby Cities</a></li>
 										<li><a href="#/districts" value="nearbycities">Browse Districts</a></li>
-    </ul>
-  
+            </ul>
+          
             </li>
-            
-			    <li><a href="#/daycares"><span data-hover="DayCares">DayCares</span></a></li>
-				 <li><a ng-click="savedsearch()" ng-if="session.data" value="savedsearch" ><span data-hover="Saved Schools">Saved Schools</span></a></li>
+
+             <li><a href="#/daycares"><span data-hover="Daycares">DayCares</span></a></li>
+			  <li><a ng-click="savedsearch()" ng-if="session.data" value="savedsearch" ><span data-hover="Saved Schools">Saved Schools</span></a></li>
 			<li><a ng-click="saveddaycares()" ng-if="session.data" value="saveddaycares" ><span data-hover="Saved Daycares">Saved Daycares</span></a></li>
                 <li><a href="#/contact"><span data-hover="Contact Us">Contact Us</span></a></li>
 
@@ -53,40 +54,15 @@
 		</nav>
 		<div class="wthree_banner1_info">
 			<div class="container">
-				<h3><span>Login</span> </h3>
+				<h3><span></span></h3>
 			</div>
 		</div>
 	</div>
 
-   <div class="register" ng-controller="loginCtrl" id="login">
-		<div class="container">
-			<div class="col-md-offset-4 col-md-6 w3layouts_register_right">
-				<form id="login" action="" method="post" ng-submit="login()">
+<div class="register" ng-controller="myCtrl" id="schoolsearch" >
+   <div class="col-md-offset-4 col-md-6">
+    <p>Congratulations!!You are registered and can now login.</p>
+   </div>
 
-            
-   
-    <fieldset>
-      <label><p>Username:</p></label>
-      <input placeholder="Username" ng-model="user" type="text" tabindex="1" required autofocus>
-    </fieldset>
-    <fieldset>
-        <label><p>Password:</p></label><br>
-      <input style="height:40px;width:100%;" placeholder="Password" ng-model="password" type="password" tabindex="2" required>
-    </fieldset>
-
-     <fieldset>
-					<input type="submit" value="Login">
-    </fieldset>
-				</form>
-			</div>
+</div>
 			
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-
-  <div id="errordiv" ng-controller="myCtrl">
-        <div class="alert alert-danger" role="alert">
-					<p><span id="error"></span><br><br>
-                    <button type="button" value="Search Again" id="backbtn"  ng-click="back()">Search Again </button></p>
-		</div>
-     </div>

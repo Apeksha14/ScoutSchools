@@ -578,7 +578,8 @@ nav.navbar.navbar-default {
     /*background:rgba(10, 206, 255, 0.33);*/
 	background-color:lightgoldenrodyellow;
 }
-.w3layouts_register_right input[type="text"],.w3layouts_register_right input[type="email"] {
+.w3layouts_register_right input[type="text"],.w3layouts_register_right input[type="email"],
+.w3layouts_register_right input[type="password"]  {
 	/*outline: none;*/
     background: #fff;
     padding: 12px !important;
